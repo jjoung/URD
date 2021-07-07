@@ -86,7 +86,7 @@ calcDM <- function(object, genes.use=object@var.genes, cells.use=NULL, knn=NULL,
   data.use <- t(object@logupx.data[genes.use, cells.use])
   rownames(data.use) <- NULL
   colnames(data.use) <- NULL
-  data.use <- as.matrix(data.use)
+  data.use <- as(data.use, "dgCMatrix")
   
   # Figure out sigma
   if (is.null(sigma.use)) {
